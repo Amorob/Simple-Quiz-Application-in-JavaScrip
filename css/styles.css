@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #eeeeee;
+  color: #131313;
+}
+/* Utility Classes */
+a {
+  text-decoration: none;
+  color: #131313;
+  cursor: pointer;
+}
+a:hover {
+  color: blue;
+}
+.btn {
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 10px;
+  display: block;
+  text-align: center;
+  border: 1px solid cadetblue;
+  border-radius: 5px;
+  color: cadetblue;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: cadetblue;
+  color: tomato;
+  box-shadow: 0 0.5rem 1.5rem 0 rgba(86, 185, 235, 0.5);
+  cursor: pointer;
+}
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+h1 {
+  margin: 10px;
+  padding: 10px;
+}
+/* Container */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin: auto;
+  padding: 2rem;
+}
+/* Play page */
+/* Question */
+#question {
+  margin: 5px 0;
+  padding: 1rem;
+}
+/* choice-container */
+.choice-container {
+  display: flex;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font-size: 1.8rem;
+  border: 0.1rem solid rgba(86, 165, 235, 0.25);
+  background-color: #ffffff;
+}
+.choice-container:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+  color: tomato;
+  box-shadow: 0 0.5rem 1.5rem 0 rgba(86, 185, 235, 0.5);
+}
+/* choice-prefix */
+.choice-prefix {
+  padding: 1.5rem 2.5rem;
+  background-color: #56a5eb;
+  color: #ffffff;
+}
+/* choice-text */
+.choice-text {
+  padding: 1.5rem;
+  width: 100%;
+}
+/* correct class */
+.correct {
+  background-color: #28a745;
+}
+/* incorrect class */
+.incorrect {
+  background-color: #dc3545;
+}
