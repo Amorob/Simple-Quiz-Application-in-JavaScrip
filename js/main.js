@@ -1,5 +1,7 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const questionCounterText = document.getElementById("question-counter");
+const scoreText = document.getElementById("score");
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -7,7 +9,7 @@ let questionCounter = 0;
 let availableQuestions = [];
 let questions = [
   {
-    question: "HTML is what type of language ?",
+    question: "Question 1: HTML is what type of language ?",
     choice1: "Scripting Language",
     choice2: "Markup Language",
     choice3: "Programming Language",
@@ -15,7 +17,7 @@ let questions = [
     answer: 2,
   },
   {
-    question: "The year in which HTML was first proposed _______.",
+    question: "Question 2: The year in which HTML was first proposed _______.",
     choice1: "1990",
     choice2: "1991",
     choice3: "1992",
@@ -23,7 +25,7 @@ let questions = [
     answer: 1,
   },
   {
-    question: "Fundamental HTML Block is known as ___________.",
+    question: "Question 3: Fundamental HTML Block is known as ___________.",
     choice1: "HTML Body",
     choice2: "HTML tag",
     choice3: "HTML Attribute",
@@ -49,6 +51,8 @@ function getNewQuestion() {
     return window.location.assign("./end.html");
   }
   questionCounter++;
+  // Update question counter text
+  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
@@ -74,6 +78,10 @@ choices.forEach((choice) => {
     //   Apply class to correct or wrong answer
     const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+    //   calling increamentScore function
+    if (classToApply === "correct") {
+      increamentScore(CORRECT_BONUS);
+    }
     selectedChoice.parentElement.classList.add(classToApply);
     //   setTimeOut function to remove classToApply class
     setTimeout(function () {
@@ -84,5 +92,10 @@ choices.forEach((choice) => {
     // getNewQuestion();
   });
 });
-
+// Increament score functio
+function increamentScore(number) {
+  score += number;
+  scoreText.innerText = score;
+}
+// calling startPlay function
 startPlay();

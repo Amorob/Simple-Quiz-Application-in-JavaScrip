@@ -95,3 +95,17 @@ h1 {
 .incorrect {
   background-color: #dc3545;
 }
+/* hud */
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+.prefix-hud {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.text-main-hud {
+  text-align: center;
+  color: cadetblue;
+  
+}
