@@ -107,5 +107,22 @@ h1 {
 .text-main-hud {
   text-align: center;
   color: cadetblue;
-  
+}
+/* end page */
+#end-page {
+  background-color: cadetblue;
+  height: 50vh;
+  width: 50vw;
+  padding: 2rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.pass {
+  background-color: #28a745;
+}
+.fail {
+  background-color: #dc3545;
 }

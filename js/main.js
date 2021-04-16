@@ -2,6 +2,7 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
+const passOrFaill = document.querySelector(".pass-or-fail");
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -41,13 +42,14 @@ function startPlay() {
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions];
-  console.log(availableQuestions);
+  // console.log(availableQuestions);
   getNewQuestion();
 }
 // getNewQuestions function - Move to another question
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
     // Go to the end of the page
+
     return window.location.assign("./end.html");
   }
   questionCounter++;
@@ -88,7 +90,7 @@ choices.forEach((choice) => {
       selectedChoice.parentElement.classList.remove(classToApply);
       // Move to new question
       getNewQuestion();
-    }, 3000);
+    }, 2000);
     // getNewQuestion();
   });
 });
@@ -97,5 +99,6 @@ function increamentScore(number) {
   score += number;
   scoreText.innerText = score;
 }
+
 // calling startPlay function
 startPlay();
