@@ -17,7 +17,9 @@ a {
 a:hover {
   color: blue;
 }
-.btn {
+.btn,
+form input {
+  width: 20rem;
   background-color: #ffffff;
   padding: 10px;
   margin: 10px;
@@ -54,6 +56,10 @@ h1 {
   max-width: 80%;
   margin: auto;
   padding: 2rem;
+}
+/* Home page */
+#home {
+  text-align: center;
 }
 /* Play page */
 /* Question */
@@ -110,19 +116,29 @@ h1 {
 }
 /* end page */
 #end-page {
-  background-color: cadetblue;
-  height: 50vh;
-  width: 50vw;
-  padding: 2rem;
   display: flex;
-  text-align: center;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  color: #ffffff;
+  justify-content: center;
 }
-.pass {
-  background-color: #28a745;
+/* form */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.fail {
-  background-color: #dc3545;
+form input {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+}
+#final-score {
+  color: cadetblue;
+  font-size: 2rem;
+  padding: 1rem;
+  font-weight: bold;
+}
+input::placeholder {
+  color: #aaaaaa;
+  font-size: 1rem;
 }

@@ -1,8 +1,8 @@
-const question = document.getElementById("question");
+let question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-const questionCounterText = document.getElementById("question-counter");
+let questionCounterText = document.getElementById("question-counter-text");
 const scoreText = document.getElementById("score");
-const passOrFaill = document.querySelector(".pass-or-fail");
+
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -18,7 +18,26 @@ let questions = [
     answer: 2,
   },
   {
-    question: "Question 2: The year in which HTML was first proposed _______.",
+    question:
+      "Question 2: Which of the following is true about variable naming conventions in JavaScript?",
+    choice1:
+      "JavaScript variable names must begin with a letter or the underscore character",
+    choice2: " JavaScript variable names are case sensitive",
+    choice3: "Both A and B",
+    choice4: "None of the Above",
+    answer: 3,
+  },
+  {
+    question:
+      "Question 3: How can you get the type of arguments passed to a function?",
+    choice1: "using typeof operator",
+    choice2: "using getType function",
+    choice3: "Both of the above",
+    choice4: "None of the Above",
+    answer: 1,
+  },
+  {
+    question: "Question 4: The year in which HTML was first proposed _______.",
     choice1: "1990",
     choice2: "1991",
     choice3: "1992",
@@ -26,7 +45,7 @@ let questions = [
     answer: 1,
   },
   {
-    question: "Question 3: Fundamental HTML Block is known as ___________.",
+    question: "Question 5: Fundamental HTML Block is known as ___________.",
     choice1: "HTML Body",
     choice2: "HTML tag",
     choice3: "HTML Attribute",
@@ -35,8 +54,8 @@ let questions = [
   },
 ];
 // CONSTANTS
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const CORRECT_BONUS = 20;
+const MAX_QUESTIONS = questions.length;
 // startPlay function
 function startPlay() {
   questionCounter = 0;
@@ -47,15 +66,14 @@ function startPlay() {
 }
 // getNewQuestions function - Move to another question
 function getNewQuestion() {
-  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+  if (availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS) {
     // Go to the end of the page
-
     return window.location.assign("./end.html");
   }
   questionCounter++;
   // Update question counter text
-  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
-  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  questionCounterText.innerText = `${questionCounter} / ${MAX_QUESTIONS}`;
+  let questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
 
@@ -65,7 +83,7 @@ function getNewQuestion() {
     choice.innerText = currentQuestion["choice" + number];
   });
   // slice out available question array
-  availableQuestions.slice(questionIndex, 1);
+  availableQuestions.splice(questionIndex, 1);
   acceptingAnswers = true;
 }
 // add event listener to forEach choice
@@ -77,6 +95,7 @@ choices.forEach((choice) => {
     acceptingAnswers = false;
     const selectedChoice = evt.target;
     const selectedAnswer = selectedChoice.dataset["number"];
+
     //   Apply class to correct or wrong answer
     const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
@@ -90,11 +109,11 @@ choices.forEach((choice) => {
       selectedChoice.parentElement.classList.remove(classToApply);
       // Move to new question
       getNewQuestion();
-    }, 2000);
+    }, 1000);
     // getNewQuestion();
   });
 });
-// Increament score functio
+// Increament score function
 function increamentScore(number) {
   score += number;
   scoreText.innerText = score;
@@ -102,3 +121,16 @@ function increamentScore(number) {
 
 // calling startPlay function
 startPlay();
+
+// variable declaration for save score
+let userName = document.getElementById("user-name");
+let saveScore = document.getElementById("save-score");
+// user name key up
+// userName.addEventListener("keyup", function () {
+//   saveScore.disabled = !userName.value;
+// });
+// saveHighScore function
+function saveHighScore(evt) {
+  console.log("click");
+  e.preventDefault();
+}
